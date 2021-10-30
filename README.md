@@ -1,3 +1,3 @@
-# Template repo
+# Hospital Management System
 
-For future generic repo
+CO2014 assignment
