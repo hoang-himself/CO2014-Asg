@@ -2,7 +2,10 @@
 ARG VARIANT=17.0.1-bullseye
 FROM node:${VARIANT}
 
-RUN npm install -g editorconfig typescript @nestjs/cli
+WORKDIR /workspace
+# RUN npm install
+# RUN npm install editorconfig @nestjs/cli
+# RUN npm install @nestjs/typeorm typeorm pg
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
