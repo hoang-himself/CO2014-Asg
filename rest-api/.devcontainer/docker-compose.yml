@@ -1,0 +1,54 @@
+version: '3.8'
+
+volumes:
+  postgres-volume:
+    external: true
+    name: postgres-volume
+
+networks:
+  postgres-network:
+    driver: bridge
+
+services:
+  project:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 17.0.1-bullseye
+    init: true
+    ports:
+    - 3000:3000
+    volumes:
+    - ..:/workspace:cached
+    networks:
+    - postgres-network
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Uncomment the next line to use a non-root user for all processes.
+    # user: node
+
+  postgres:
+    image: postgres:14.0-bullseye
+    restart: unless-stopped
+    ports:
+    - 5432:5432
+    volumes:
+    - postgres-volume:/var/lib/postgresql/data
+    env_file:
+    - ../.postgres.env
+    networks:
+    - postgres-network
+
+  pgadmin:
+    image: dpage/pgadmin4:6.1
+    ports:
+    - 8080:80
+    volumes:
+    - /data/pgadmin:/root/.pgadmin
+    env_file:
+    - ../.pgadmin.env
+    networks:
+    - postgres-network

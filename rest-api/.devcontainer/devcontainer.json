@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.198.0/containers/javascript-node-postgres
+// Update the VARIANT arg in docker-compose.yml to pick a Node.js version
+{
+  "name": "Node.js & PostgreSQL",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "project",
+  "workspaceFolder": "/workspace",
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "editor.bracketPairColorization.enabled": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "errorLens.enabledDiagnosticLevels": [
+      "error",
+      "warning",
+      "hint",
+      "info"
+    ],
+    "errorLens.messageTemplate": "$severity [1/$count] $message",
+    "errorLens.severityText": [
+      "(っ °Д °;)っ",
+      "(* ￣︿￣)",
+      "（︶^︶）",
+      "( ͡° ͜ʖ ͡°)"
+    ],
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "oderwat.indent-rainbow",
+    "ms-vscode.vscode-typescript-next",
+    "rangav.vscode-thunder-client",
+    "ms-azuretools.vscode-docker",
+    "adpyke.vscode-sql-formatter"
+  ],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "node"
+}
