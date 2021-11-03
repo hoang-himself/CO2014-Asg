@@ -5,12 +5,12 @@ volumes:
     external: true
     name: postgres-volume
 
-networks:
-  postgres-network:
-    driver: bridge
-
 services:
   project:
+    container_name: db-lab
+    depends_on:
+      - postgres
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
@@ -22,16 +22,8 @@ services:
     volumes:
       - ..:/workspace:cached
     env_file:
-      - ../.nestjs.env
-      - ../.postgres.env
-    networks:
-      - postgres-network
-
-    # Overrides default command so things don't shut down after the process ends.
-    command: sleep infinity
-
-    # Uncomment the next line to use a non-root user for all processes.
-    # user: node
+      - ./.nestjs.env
+      - ./.postgres.env
 
   postgres:
     image: postgres:14.0-bullseye
@@ -41,9 +33,7 @@ services:
     volumes:
       - postgres-volume:/var/lib/postgresql/data
     env_file:
-      - ../.postgres.env
-    networks:
-      - postgres-network
+      - ./.postgres.env
 
   pgadmin:
     depends_on:
@@ -55,6 +45,4 @@ services:
     volumes:
       - /data/pgadmin:/root/.pgadmin
     env_file:
-      - ../.pgadmin.env
-    networks:
-      - postgres-network
+      - ./.pgadmin.env
