@@ -14,6 +14,8 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-RUN chown -R ${USERNAME} /usr/src/app/node_modules
+RUN mkdir -p ./dist
+
+RUN chown -R ${USERNAME} ./dist ./node_modules
 USER ${USERNAME}
 CMD [ "npm", "run", "start" ]

@@ -2,8 +2,6 @@ version: '3.8'
 
 volumes:
   postgres-volume:
-    # external: true
-    # name: postgres-volume
 
 networks:
   postgres-network:
