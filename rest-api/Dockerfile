@@ -1,12 +1,19 @@
-# [Choice] Node.js version (use -bullseye variants on local arm64/Apple Silicon): 16, 14, 12, 16-bullseye, 14-bullseye, 12-bullseye, 16-buster, 14-buster, 12-buster
-ARG VARIANT=17.0.1-bullseye
+ARG VARIANT=17.1-bullseye
+
 FROM node:${VARIANT}
 
-RUN npm install -g editorconfig @nestjs/cli
+ARG USERNAME=node
 
-RUN mkdir -p /workspace
-WORKDIR /workspace
-COPY . /workspace
+WORKDIR /usr/src/app
+
+RUN apt-get autoremove -y \
+  && apt-get clean -y \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY package*.json ./
 RUN npm install
+COPY . .
 
-CMD [ "npm", "run", "start:dev" ]
+RUN chown -R ${USERNAME} /usr/src/app/node_modules
+USER ${USERNAME}
+CMD [ "npm", "run", "start" ]

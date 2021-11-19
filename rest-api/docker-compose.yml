@@ -2,31 +2,34 @@ version: '3.8'
 
 volumes:
   postgres-volume:
-    external: true
-    name: postgres-volume
+    # external: true
+    # name: postgres-volume
+
+networks:
+  postgres-network:
+    driver: bridge
 
 services:
   project:
-    container_name: db-lab
-    depends_on:
-      - postgres
-    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        VARIANT: 17.0.1-bullseye
-    init: true
+        VARIANT: 17.1-bullseye
+        USERNAME: node
+    depends_on:
+      - postgres
     ports:
       - 3000:3000
-    volumes:
-      - ..:/workspace:cached
     env_file:
       - ./.nestjs.env
       - ./.postgres.env
+    networks:
+      - postgres-network
+    user: node
 
   postgres:
-    image: postgres:14.0-bullseye
+    image: postgres:14.1-bullseye
     restart: unless-stopped
     ports:
       - 5432:5432
@@ -34,11 +37,13 @@ services:
       - postgres-volume:/var/lib/postgresql/data
     env_file:
       - ./.postgres.env
+    networks:
+      - postgres-network
 
   pgadmin:
     depends_on:
       - postgres
-    image: dpage/pgadmin4:6.1
+    image: dpage/pgadmin4:6.2
     restart: unless-stopped
     ports:
       - 8080:80
@@ -46,3 +51,5 @@ services:
       - /data/pgadmin:/root/.pgadmin
     env_file:
       - ./.pgadmin.env
+    networks:
+      - postgres-network

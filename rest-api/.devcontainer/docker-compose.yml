@@ -2,8 +2,8 @@ version: '3.8'
 
 volumes:
   postgres-volume:
-    external: true
-    name: postgres-volume
+    # external: true
+    # name: postgres-volume
 
 networks:
   postgres-network:
@@ -15,7 +15,9 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        VARIANT: 17.0.1-bullseye
+        VARIANT: 17.1-bullseye
+        USERNAME: node
+        USER_UID: 1000
     init: true
     ports:
       - 3000:3000
@@ -26,15 +28,11 @@ services:
       - ../.postgres.env
     networks:
       - postgres-network
-
-    # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
-
-    # Uncomment the next line to use a non-root user for all processes.
-    # user: node
+    user: node
 
   postgres:
-    image: postgres:14.0-bullseye
+    image: postgres:14.1-bullseye
     restart: unless-stopped
     ports:
       - 5432:5432
@@ -48,7 +46,7 @@ services:
   pgadmin:
     depends_on:
       - postgres
-    image: dpage/pgadmin4:6.1
+    image: dpage/pgadmin4:6.2
     restart: unless-stopped
     ports:
       - 8080:80
