@@ -251,19 +251,19 @@ We can normalize \textcolor{blue}{PATIENT RECORD} relations by decomposing it in
 
 \newpage
 \begin{figure}[H]
-    \centering
-    \includegraphics[width = 12cm]{assets/New_logcial_design.png}
-    \captionsetup{justification=centering,margin=2cm}
-    \caption{The new physical design implemented with MySQL Workbench}
+  \centering
+  \includegraphics[width = 12cm]{assets/New_logcial_design.png}
+  \captionsetup{justification=centering,margin=2cm}
+  \caption{The new physical design implemented with MySQL Workbench}
 \end{figure}
 
-Similar to assignment 1, we will use a feature called \textcolor{blue}{Forward engineering } in MySQL workbench to convert the design to SQL code.  
+Similar to assignment 1, we will use a feature called \textcolor{blue}{Forward engineering } in MySQL workbench to convert the design to SQL code.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width = 8cm]{assets/step2.png}
-    \captionsetup{justification=centering,margin=2cm}
-    \caption{Forward engineering finished successfully.}
+  \centering
+  \includegraphics[width = 8cm]{assets/step2.png}
+  \captionsetup{justification=centering,margin=2cm}
+  \caption{Forward engineering finished successfully.}
 \end{figure}
 Our database is now ready to be used.
 
@@ -276,36 +276,36 @@ Our database is now ready to be used.
 \subsection{Types of database security}
 Database security is a broad area that addresses many issues, including the following:
 \begin{itemize}
-    \item  Various legal and ethical issues regarding the right to access certain information, for example, some information may be deemed to be private and cannot be accessed legally by unauthorized organizations or persons. 
-    \item Policy issues at the governmental, institutional, or corporate level regarding what kinds of information should not be made publicly available, for example, credit ratings and personal medical records.
-    \item System-related issues such as the system levels at which various security functions should be enforced, for example, whether a security function should be handled at the physical hardware level, the operating system level, or the DBMS level.
-    \item The need in some organizations to identify multiple security levels and to categorize the data and users based on these classifications, for example, top secret, secret, confidential, and unclassified.
+  \item  Various legal and ethical issues regarding the right to access certain information, for example, some information may be deemed to be private and cannot be accessed legally by unauthorized organizations or persons.
+  \item Policy issues at the governmental, institutional, or corporate level regarding what kinds of information should not be made publicly available, for example, credit ratings and personal medical records.
+  \item System-related issues such as the system levels at which various security functions should be enforced, for example, whether a security function should be handled at the physical hardware level, the operating system level, or the DBMS level.
+  \item The need in some organizations to identify multiple security levels and to categorize the data and users based on these classifications, for example, top secret, secret, confidential, and unclassified.
 \end{itemize}
 
 \subsection{Threats to databases}
 Threats to databases can result in the loss of degradation of some or all of the following commonly accepted security goals:
 \begin{itemize}
-    \item  Loss of integrity: Database integrity refers to the requirement that information be protected from improper modification. Modification of data includes creating, inserting, and updating data; changing the status of data; and deleting data. Integrity is lost if unauthorized changes are made to the data by either intentional or accidental acts. If the loss of system or data integrity is not corrected, continued use of the contaminated system or corrupted data could result in inaccuracy, fraud, or erroneous decisions.
-    \item Loss of availability. Database availability refers to making objects available to a human user or a program who/which has a legitimate right to those data objects. Loss of availability occurs when the user or program cannot access these objects.
-    \item Loss of confidentiality. Database confidentiality refers to the protection of data from unauthorized disclosure. The impact of unauthorized disclosure of confidential information can range from violation of the Data Privacy Act to the jeopardization of national security. Unauthorized, unanticipated, or unintentional disclosure could result in loss of public confidence, embarrassment, or legal action against the organization.
+  \item  Loss of integrity: Database integrity refers to the requirement that information be protected from improper modification. Modification of data includes creating, inserting, and updating data; changing the status of data; and deleting data. Integrity is lost if unauthorized changes are made to the data by either intentional or accidental acts. If the loss of system or data integrity is not corrected, continued use of the contaminated system or corrupted data could result in inaccuracy, fraud, or erroneous decisions.
+  \item Loss of availability. Database availability refers to making objects available to a human user or a program who/which has a legitimate right to those data objects. Loss of availability occurs when the user or program cannot access these objects.
+  \item Loss of confidentiality. Database confidentiality refers to the protection of data from unauthorized disclosure. The impact of unauthorized disclosure of confidential information can range from violation of the Data Privacy Act to the jeopardization of national security. Unauthorized, unanticipated, or unintentional disclosure could result in loss of public confidence, embarrassment, or legal action against the organization.
 
 \end{itemize}
 
 \subsection{Solution}
 When considering the threats facing databases, it is important to remember that the database management system alone cannot be responsible for maintaining the confidentiality, integrity, and availability of the data. Rather, the database works as a part of a network of services, including applications, Web servers, firewalls, SSL terminators, and security monitoring systems. Because security of an overall system is only as strong as its weakest link, a database may be compromised even if it would have been perfectly secure on its own merits. \\ \\
-To protect databases against these types of threats, four kinds of countermeasures can be implemented: 
+To protect databases against these types of threats, four kinds of countermeasures can be implemented:
 \begin{enumerate}
-    \item Access control
-    \item Inference control
-    \item Flow control
-    \item Data encryption
+  \item Access control
+  \item Inference control
+  \item Flow control
+  \item Data encryption
 \end{enumerate}
 
 \subsubsection{Access control}
-A DBMS typically includes a database security and authorization subsystem that is responsible for ensuring the security of portions of a database against unauthorized access. It is now customary to refer to two types of database security mechanisms : 
+A DBMS typically includes a database security and authorization subsystem that is responsible for ensuring the security of portions of a database against unauthorized access. It is now customary to refer to two types of database security mechanisms :
 \begin{itemize}
-    \item \textcolor{blue}{Discretionary Access control}. These are used to grant privileges to users, including the capability to access specific data files, records, or fields in a specified mode (such as read, insert, delete, or update).
-    \item \textcolor{blue}{Mandatory access control}. These are used to enforce multilevel security by classifying the data and users into various security classes (or levels) and then implementing the appropriate security policy of the organization. For example, a typical security policy is to permit users at a certain classification (or clearance) level to see only the data items classified at the user’s own (or lower) classification level. An extension of this is role-based security, which enforces policies and privileges based on the concept of organizational roles.
+  \item \textcolor{blue}{Discretionary Access control}. These are used to grant privileges to users, including the capability to access specific data files, records, or fields in a specified mode (such as read, insert, delete, or update).
+  \item \textcolor{blue}{Mandatory access control}. These are used to enforce multilevel security by classifying the data and users into various security classes (or levels) and then implementing the appropriate security policy of the organization. For example, a typical security policy is to permit users at a certain classification (or clearance) level to see only the data items classified at the user’s own (or lower) classification level. An extension of this is role-based security, which enforces policies and privileges based on the concept of organizational roles.
 \end{itemize}
 
 \subsubsection{Inference control}
@@ -330,82 +330,82 @@ With that having been said, we decided to create a webserver that provides a RES
 We will demonstrate the application on the \textcolor{blue}{AMBULANCE} table.
 Our server lives at \url{localhost:3000} as seen here.
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./assets/api_ping.png}
-    \caption{Test ping to the application}
+  \centering
+  \includegraphics[width=0.8\textwidth]{./assets/api_ping.png}
+  \caption{Test ping to the application}
 \end{figure}
 
 \begin{itemize}
-    \item \textcolor{blue}{Create}:
-    We will add data to the table at \textcolor{blue}{/ambulance/new} using POST method and form-data.
-    We will insert 2 entries into the table.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./assets/api_new1.png}
-        \includegraphics[width=0.8\textwidth]{./assets/api_new2.png}
-        \caption{Adding entries to the table}
-    \end{figure}
-    
-        \item \textcolor{blue}{Retrieve}:
-    We will get data from the table at \textcolor{blue}{/ambulance/all} using GET method.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./assets/api_all.png}
-        \caption{Get all entries of table}
-    \end{figure}
-    
-    We also provide a method to get data of one entry from the table at \textcolor{blue}{/ambulance/<Car\_number>} using GET method.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./assets/api_one.png}
-        \caption{Get one entry of table}
-    \end{figure}
-    
-        \item \textcolor{blue}{Delete}:
-    We will now remove one entry from the table at \textcolor{blue}{/ambulance/<Car\_number>/delete} using DELETE method.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./assets/api_delete.png}
-        \caption{Delete the entry whose Car number is 1401 }
-    \end{figure}
-    
-    We call \textcolor{blue}{/ambulance/all} again to verify that the entry has been deleted.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./assets/api_all2.png}
-        \caption{The result after we delete the entry whose Car number is 1401}
-    \end{figure}
+  \item \textcolor{blue}{Create}:
+        We will add data to the table at \textcolor{blue}{/ambulance/new} using POST method and form-data.
+        We will insert 2 entries into the table.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.8\textwidth]{./assets/api_new1.png}
+          \includegraphics[width=0.8\textwidth]{./assets/api_new2.png}
+          \caption{Adding entries to the table}
+        \end{figure}
+
+  \item \textcolor{blue}{Retrieve}:
+        We will get data from the table at \textcolor{blue}{/ambulance/all} using GET method.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.8\textwidth]{./assets/api_all.png}
+          \caption{Get all entries of table}
+        \end{figure}
+
+        We also provide a method to get data of one entry from the table at \textcolor{blue}{/ambulance/<Car\_number>} using GET method.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.8\textwidth]{./assets/api_one.png}
+          \caption{Get one entry of table}
+        \end{figure}
+
+  \item \textcolor{blue}{Delete}:
+        We will now remove one entry from the table at \textcolor{blue}{/ambulance/<Car\_number>/delete} using DELETE method.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.8\textwidth]{./assets/api_delete.png}
+          \caption{Delete the entry whose Car number is 1401 }
+        \end{figure}
+
+        We call \textcolor{blue}{/ambulance/all} again to verify that the entry has been deleted.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.8\textwidth]{./assets/api_all2.png}
+          \caption{The result after we delete the entry whose Car number is 1401}
+        \end{figure}
 \end{itemize}
 
 You can find the full source code at :  \url{https://github.com/Smithienious/CO2014-Asg/tree/dev/rest-api}
 
 \section{Conclusion}
 Through this assignment, we have learned how to improve our database and make it more suitable for business and real life uses. First of all, we have discussed about database normalization  and applied it straight away to our Hospital database management to reduce the redundant data and enhance the consistency of the whole database. Second of all, we have talked about the database security such as the types of database security, the security threats and some solutions that are usually considered to the database security problem. Finally, we have written some complex queries, triggers , stored procedures as well as create a simple application above this database. Therefore, we can say that although there are still many things to learn, accomplishing this assignment has surely helped us to understand clearer about the structure of a database as well as the process of designing databases in a logical way for business purposes.
-       
+
 \pagebreak
 \begin{thebibliography}{9}
   \bibitem{texbook}
   R. Elmasri \& S.B. Navathe (2016): Fundamentals of Database Systems, 7th
   Edition, Addison-Wesley.
-  
-  \bibitem{textbook} 
-  Nate Lord (2020) : Definiton of Data encryption, accessed with: \url{https://digitalguardian.com/blog/what-data-encryption}
-  
+
   \bibitem{textbook}
-  TutorialsPoint : Database security, accessed with : \url{https://www.tutorialspoint.com/distributed_dbms/distributed_dbms_database_security_cryptography.htm} 
-  
+  Nate Lord (2020) : Definiton of Data encryption, accessed with: \url{https://digitalguardian.com/blog/what-data-encryption}
+
+  \bibitem{textbook}
+  TutorialsPoint : Database security, accessed with : \url{https://www.tutorialspoint.com/distributed_dbms/distributed_dbms_database_security_cryptography.htm}
+
   \bibitem{textbook}
   Josep Domingo-Ferrer, Inference Control in Statistical Databases, accessed with : \url{https://link.springer.com/referenceworkentry/10.1007\%2F978-0-387-39940-9_203}
-  
+
   \bibitem{textbook}
   GeeksforGeeks: Different types of MySQL Triggers (with examples), accessed with: \url{https://www.geeksforgeeks.org/different-types-of-mysql-triggers-with-examples/}
-  
+
   \bibitem{textbook}
   MySQL: Trigger Syntax and Examples, accessed with: \url{https://dev.mysql.com/doc/refman/8.0/en/trigger-syntax.html}
-  
+
   \bibitem{textbook}
   W3school: SQL Stored Procedures for SQL Server, accessed with: \url{https://www.w3schools.com/sql/sql_stored_procedures.asp}
-  
+
   % \bibitem{textbook}
   % Leslie Lamport (1994) \emph{\LaTeX: a document preparation system}, Addison
   % Wesley, Massachusetts, 2nd ed.
